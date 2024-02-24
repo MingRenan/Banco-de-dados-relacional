@@ -1,0 +1,252 @@
+Server [localhost]:
+Database [postgres]:
+Port [5432]:
+Username [postgres]:
+Password for user postgres:
+psql (14.2)
+WARNING: Console code page (850) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+postgres=# \l
+                                             List of databases
+   Name    |  Owner   | Encoding |        Collate         |         Ctype          |   Access privileges
+-----------+----------+----------+------------------------+------------------------+-----------------------
+ postgres  | postgres | UTF8     | Portuguese_Brazil.1252 | Portuguese_Brazil.1252 |
+ template0 | postgres | UTF8     | Portuguese_Brazil.1252 | Portuguese_Brazil.1252 | =c/postgres          +
+           |          |          |                        |                        | postgres=CTc/postgres
+ template1 | postgres | UTF8     | Portuguese_Brazil.1252 | Portuguese_Brazil.1252 | =c/postgres          +
+           |          |          |                        |                        | postgres=CTc/postgres
+(3 rows)
+
+
+postgres=# create table bancorenan
+postgres-# \l
+                                             List of databases
+   Name    |  Owner   | Encoding |        Collate         |         Ctype          |   Access privileges
+-----------+----------+----------+------------------------+------------------------+-----------------------
+ postgres  | postgres | UTF8     | Portuguese_Brazil.1252 | Portuguese_Brazil.1252 |
+ template0 | postgres | UTF8     | Portuguese_Brazil.1252 | Portuguese_Brazil.1252 | =c/postgres          +
+           |          |          |                        |                        | postgres=CTc/postgres
+ template1 | postgres | UTF8     | Portuguese_Brazil.1252 | Portuguese_Brazil.1252 | =c/postgres          +
+           |          |          |                        |                        | postgres=CTc/postgres
+(3 rows)
+
+
+postgres-# create database renan2
+postgres-# \l
+                                             List of databases
+   Name    |  Owner   | Encoding |        Collate         |         Ctype          |   Access privileges
+-----------+----------+----------+------------------------+------------------------+-----------------------
+ postgres  | postgres | UTF8     | Portuguese_Brazil.1252 | Portuguese_Brazil.1252 |
+ template0 | postgres | UTF8     | Portuguese_Brazil.1252 | Portuguese_Brazil.1252 | =c/postgres          +
+           |          |          |                        |                        | postgres=CTc/postgres
+ template1 | postgres | UTF8     | Portuguese_Brazil.1252 | Portuguese_Brazil.1252 | =c/postgres          +
+           |          |          |                        |                        | postgres=CTc/postgres
+(3 rows)
+
+
+postgres-# create data base renan
+postgres-# create database renan;
+ERROR:  syntax error at or near "create"
+LINE 2: create database renan2
+        ^
+postgres=# \l
+                                             List of databases
+   Name    |  Owner   | Encoding |        Collate         |         Ctype          |   Access privileges
+-----------+----------+----------+------------------------+------------------------+-----------------------
+ postgres  | postgres | UTF8     | Portuguese_Brazil.1252 | Portuguese_Brazil.1252 |
+ template0 | postgres | UTF8     | Portuguese_Brazil.1252 | Portuguese_Brazil.1252 | =c/postgres          +
+           |          |          |                        |                        | postgres=CTc/postgres
+ template1 | postgres | UTF8     | Portuguese_Brazil.1252 | Portuguese_Brazil.1252 | =c/postgres          +
+           |          |          |                        |                        | postgres=CTc/postgres
+(3 rows)
+
+
+postgres=# create database renan;
+CREATE DATABASE
+postgres=# \l
+                                             List of databases
+   Name    |  Owner   | Encoding |        Collate         |         Ctype          |   Access privileges
+-----------+----------+----------+------------------------+------------------------+-----------------------
+ postgres  | postgres | UTF8     | Portuguese_Brazil.1252 | Portuguese_Brazil.1252 |
+ renan     | postgres | UTF8     | Portuguese_Brazil.1252 | Portuguese_Brazil.1252 |
+ template0 | postgres | UTF8     | Portuguese_Brazil.1252 | Portuguese_Brazil.1252 | =c/postgres          +
+           |          |          |                        |                        | postgres=CTc/postgres
+ template1 | postgres | UTF8     | Portuguese_Brazil.1252 | Portuguese_Brazil.1252 | =c/postgres          +
+           |          |          |                        |                        | postgres=CTc/postgres
+(4 rows)
+
+
+postgres=# \c renan
+You are now connected to database "renan" as user "postgres".
+renan=# create table tabela1(coluna1 interger);
+ERROR:  type "interger" does not exist
+LINE 1: create table tabela1(coluna1 interger);
+                                     ^
+renan=# create table tabela1(coluna1 date);
+CREATE TABLE
+renan=# create table tabela2(coluna2 date);
+CREATE TABLE
+renan=# create table tabela3(coluna3 date);
+CREATE TABLE
+renan=# create table tabela4(coluna4 date);
+CREATE TABLE
+renan=# create table tabela5(coluna5 date);
+CREATE TABLE
+renan=# drop table tabela1
+renan-# drop table tabela1;
+ERROR:  syntax error at or near "drop"
+LINE 2: drop table tabela1;
+        ^
+renan=# drop table tabela1;
+DROP TABLE
+renan=# drop table tabela2;
+DROP TABLE
+renan=# drop table tabela3;
+DROP TABLE
+renan=# drop table tabela4;
+DROP TABLE
+renan=# drop table tabela5;
+DROP TABLE
+renan=# create table cliente (Nome_Cliente char, cidade_cliente char , endereco_cliente char);
+CREATE TABLE
+renan=# create table emprestimo (Numero_emprestimo integer,nome_agencia char ,valor integer);
+CREATE TABLE
+renan=# create table conta (Numero_conta integer,nome_agencia char ,saldo integer);
+CREATE TABLE
+renan=# create table agencia (nome_agencia char,cidade_agencia char ,deposito integer);
+CREATE TABLE
+renan=# alter table cliente rename to tb_cliente
+renan-# alter table cliente rename to tb_cliente;
+ERROR:  syntax error at or near "alter"
+LINE 2: alter table cliente rename to tb_cliente;
+        ^
+renan=# alter table cliente rename to tb_cliente;
+ALTER TABLE
+renan=# alter table emprestimo rename tb_emprestimo;
+ERROR:  syntax error at or near ";"
+LINE 1: alter table emprestimo rename tb_emprestimo;
+                                                   ^
+renan=# alter table emprestimo rename tb_emprestimo;
+ERROR:  syntax error at or near ";"
+LINE 1: alter table emprestimo rename tb_emprestimo;
+                                                   ^
+renan=# alter table emprestimo rename tb_emprestimo ;
+ERROR:  syntax error at or near ";"
+LINE 1: alter table emprestimo rename tb_emprestimo ;
+                                                    ^
+renan=# alter table emprestimo rename tb_emprestimo;
+ERROR:  syntax error at or near ";"
+LINE 1: alter table emprestimo rename tb_emprestimo;
+                                                   ^
+renan=# alter table emprestimo rename tb_emprestimo
+renan-# alter table emprestimo rename tb_emprestimo;
+ERROR:  syntax error at or near "alter"
+LINE 2: alter table emprestimo rename tb_emprestimo;
+        ^
+renan=# alter table emprestimo rename tbemprestimo;
+ERROR:  syntax error at or near ";"
+LINE 1: alter table emprestimo rename tbemprestimo;
+                                                  ^
+renan=# alter table emprestimo rename tbemprestimo ;
+ERROR:  syntax error at or near ";"
+LINE 1: alter table emprestimo rename tbemprestimo ;
+                                                   ^
+renan=# alter table emprestimo rename oa;
+ERROR:  syntax error at or near ";"
+LINE 1: alter table emprestimo rename oa;
+                                        ^
+renan=# alter table emprestimo rename oa
+renan-# alter table emprestimo rename oa
+renan-# alter table emprestimo rename oa:
+renan-# alter table emprestimo rename oa:;
+ERROR:  syntax error at or near "alter"
+LINE 2: alter table emprestimo rename oa
+        ^
+renan=# alter table emprestimo rename to tbemprestimo;
+ALTER TABLE
+renan=# alter table nome_agencia rename to tbagencia;
+ERROR:  relation "nome_agencia" does not exist
+renan=# alter table nome_agencia rename to tbagencia;
+ERROR:  relation "nome_agencia" does not exist
+renan=# alter table nome_agencia rename to tbagencia;\l
+ERROR:  relation "nome_agencia" does not exist
+                                             List of databases
+   Name    |  Owner   | Encoding |        Collate         |         Ctype          |   Access privileges
+-----------+----------+----------+------------------------+------------------------+-----------------------
+ postgres  | postgres | UTF8     | Portuguese_Brazil.1252 | Portuguese_Brazil.1252 |
+ renan     | postgres | UTF8     | Portuguese_Brazil.1252 | Portuguese_Brazil.1252 |
+ template0 | postgres | UTF8     | Portuguese_Brazil.1252 | Portuguese_Brazil.1252 | =c/postgres          +
+           |          |          |                        |                        | postgres=CTc/postgres
+ template1 | postgres | UTF8     | Portuguese_Brazil.1252 | Portuguese_Brazil.1252 | =c/postgres          +
+           |          |          |                        |                        | postgres=CTc/postgres
+(4 rows)
+
+
+renan=# \d
+            List of relations
+ Schema |     Name     | Type  |  Owner
+--------+--------------+-------+----------
+ public | agencia      | table | postgres
+ public | conta        | table | postgres
+ public | tb_cliente   | table | postgres
+ public | tbemprestimo | table | postgres
+(4 rows)
+
+
+renan=# alter table agencia rename to tbagencia;
+ALTER TABLE
+renan=# alter table conta rename to tbconta;
+ALTER TABLE
+renan=# \d
+            List of relations
+ Schema |     Name     | Type  |  Owner
+--------+--------------+-------+----------
+ public | tb_cliente   | table | postgres
+ public | tbagencia    | table | postgres
+ public | tbconta      | table | postgres
+ public | tbemprestimo | table | postgres
+(4 rows)
+
+
+renan=# create schema renan
+renan-# create schema renan;
+ERROR:  syntax error at or near "schema"
+LINE 2: create schema renan;
+               ^
+renan=# create schema renan;
+CREATE SCHEMA
+renan=# \d
+            List of relations
+ Schema |     Name     | Type  |  Owner
+--------+--------------+-------+----------
+ public | tb_cliente   | table | postgres
+ public | tbagencia    | table | postgres
+ public | tbconta      | table | postgres
+ public | tbemprestimo | table | postgres
+(4 rows)
+
+
+renan=# \dn
+  List of schemas
+  Name  |  Owner
+--------+----------
+ public | postgres
+ renan  | postgres
+(2 rows)
+
+
+renan=# set serch_path=tb_cliente
+renan-# set serch_path=tb_cliente;
+ERROR:  syntax error at or near "set"
+LINE 2: set serch_path=tb_cliente;
+        ^
+renan=# set serch_path=tb_cliente;
+ERROR:  unrecognized configuration parameter "serch_path"
+renan=# set serch_path=tb_cliente;
+ERROR:  unrecognized configuration parameter "serch_path"
+renan=#
+
+
