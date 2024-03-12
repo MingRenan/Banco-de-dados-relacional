@@ -1,13 +1,4 @@
-postgres=# create database renan1;
-CREATE DATABASE
-postgres=# \c renan1
-Agora você está conectado ao banco de dados "renan1" como usuário "postgres".
-renan1=# create table tbl_cliente(codigo_cliente integer primary key , nome char not null , cidade char , endereco char);
-CREATE TABLE
-renan1=# create table tbl_titulo(codigo_titulo integer primary key , titulo char not null , descricao char , categoria text default 'drama,comedia');
-CREATE TABLE
-renan1=# create table tbl_livros(cod_livro integer primary key , codigo_titulo integer references tbl_titulo(codigo_titulo));
-CREATE TABLE
-renan1=# create table tbl_emprestimo(numero_emprestimo integer primary key , codigo_cliente integer references tbl_cliente(codigo_cliente),codigo_livro integer references tbl_livros(cod_livro));
-CREATE TABLE
-renan1=#
+create table tbl_cliente(codigo_cliente integer primary key , nome varchar not null , cidade varchar , endereco varchar);
+create table tbl_titulo(codigo_titulo integer primary key , titulo varchar not null , descricao varchar , categoria text default 'drama,comedia');
+create table tbl_livros(status text ,cod_livro integer primary key , codigo_titulo integer references tbl_titulo(codigo_titulo));
+create table tbl_emprestimo(numero_emprestimo integer primary key , codigo_cliente integer references tbl_cliente(codigo_cliente),codigo_livro integer references tbl_livros(cod_livro));
